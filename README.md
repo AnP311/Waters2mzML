@@ -5,7 +5,7 @@ Waters2mzML deletes lockmass and UV detector functions and converts the files to
 
 ## Prerequisites
 Our data was aquired with a Waters Synapt G2i, MassLynx V4.2. It is yet unclear if it will work for other Waters .raw data.
-Waters2mzML will currently only work if the last two functions in your .raw folder belong to lockmass and UV detector, consisting of 3 and 2 files, respectively, and are followed by three additional files (“_FUNCTNS“, “_HEADER“, and “_INLET“). See .raw setup example pic: /Example_.raw_DDA_file.JPG
+Waters2mzML will currently only work if the last two functions in your .raw folder belong to lockmass and UV detector, consisting of 3 and 2 files, respectively, and are followed by three additional files. See .raw data example pic: /Example_.raw_DDA_file.JPG
 Waters2mzML has so far only been tested on Windows 10, 64bit.
 
 ## How to use
