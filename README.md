@@ -7,7 +7,7 @@ Waters2mzML deletes lockmass (reference mass) functions - if present - and conve
 ## What's new?
 
 Based on the raw data's "_extern" file, Waters2mzML V1.1 can determine if a lockmass function is present and delete corresponding files.
-Waters2mzML V1.0 automatically assumed there are both lockmass and UV detector functions, which is likely device specific.
+Waters2mzML V1.0 automatically assumed there are both lockmass and UV detector functions, which is likely specific to device/settings.
 
 ## Prerequisites
 Our data was aquired with a Waters Synapt G2i, MassLynx V4.2. It is yet unclear if it will work for other Waters .raw data.
