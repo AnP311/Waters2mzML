@@ -1,5 +1,7 @@
 # Waters2mzML V1.1
 
+CURRENTLY ONLY WORKS FOR ONE FILE AT A TIME, WILL BE FIXED ASAP
+
 Waters2mzML converts and subsequently annotates Waters .raw MSn data (both MSe and DDA) into functional .mzML files. Obtained .mzML files can be processed in MZmine 3. It would be interesting to see if it works for all Waters .raw data and other processing streamlines.
 
 Waters2mzML deletes lockmass (reference mass) functions - if present - and converts the files to .mzML using ProteoWizard‘s MSConvert. Obtained .mzML files are annotated as .txt files, renumbering the scans.
