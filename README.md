@@ -21,6 +21,7 @@ Before converting a new batch: Remove previously processed files from mzML_files
 ### Config file
 
 The config file can be changed according to ProteoWizard‘s MSConvert command line input: https://proteowizard.sourceforge.io/tools/msconvert.html
+
 Make sure not to delete spaces before and after command. 
 
 
