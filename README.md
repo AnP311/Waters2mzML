@@ -1,4 +1,4 @@
-# Waters2mzML V1.1.1
+# Waters2mzML V1.1.2
 
 
 Waters2mzML converts and subsequently annotates Waters .raw MSn data (both MSe and DDA) into functional .mzML files. Obtained .mzML files can be processed in MZmine 3. It would be interesting to see if it works for all Waters .raw data and other processing streamlines.
@@ -6,7 +6,8 @@ Waters2mzML converts and subsequently annotates Waters .raw MSn data (both MSe a
 Based on the raw data's "_extern" file, Waters2mzML deletes lockmass (reference mass) functions - if present - and converts the files to .mzML using ProteoWizard‘s MSConvert. Obtained .mzML files are annotated as .txt files, renumbering the scans.
 
 ## Prerequisites
-Our data was aquired with a Waters Synapt G2 Si, MassLynx V4.2. It is yet unclear if it will work for other Waters .raw data.
+Our data was aquired with a Waters Synapt G2 Si, MassLynx V4.2. Waters2mzML V1.1.2 now also includes Waters Xevo G2 DDA .raw data.
+It is yet unclear if it will work for other Waters .raw data.
 Waters2mzML has so far only been tested on Windows 10, 64bit.
 
 ## How to use
