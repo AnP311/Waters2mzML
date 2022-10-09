@@ -23,7 +23,7 @@ Before converting a new batch: Remove previously processed files from mzML_files
 
 ### MSe data
 
-V1.1.3 can convert MSe data, but for each MS level 2 scan, a precursor mass is set to 1025.0.
+V1.1.3 can convert MSe data, but for all MS level 2 scans a constant precursor mass is assigned.
 
 ### Profile data
 
