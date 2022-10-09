@@ -1,6 +1,6 @@
-# Waters2mzML V1.1.2
+# Waters2mzML V1.1.3 (uploaded soon)
 
-*currently issues with profile data, bugs will be fixed soon*
+*currently issues with profile data and MSe data, see below*
 
 
 Waters2mzML converts and subsequently annotates Waters .raw MSn data (both MSe and DDA) into functional .mzML files. Obtained .mzML files can be processed in MZmine 3. It would be interesting to see if it works for all Waters .raw data and other processing streamlines.
@@ -15,17 +15,27 @@ Waters2mzML has so far only been tested on Windows 10, 64bit.
 ## How to use
 -	Do not delete or rename any of the files or folders.
 -	Put COPIES of your Waters .raw files into raw_files folder (files will be annotated)
--	Execute Waters2mzML1.1.exe
+-	Execute Waters2mzML-1.1.3exe
 -	Wait for console window to show „annotation completed!“
 -	Find functional .mzML files in the mzML_files folder. Desktop
 
 Before converting a new batch: Remove previously processed files from mzML_files folder. The software will process them again. While this will not corrupt them, it will extend execution time.
 
+### MSe data
+
+V1.1.3 can convert MSe data, but for each MS level 2 scan, a precursor mass is set to 1025.0.
+
+### Profile data
+
+V1.1.3 output is still profile data. Converting the .mzML output files again using msconvert GUI and vendor peakPicking filter can centroid them. As this does not seem to work in command line, you need to do this yourself after processing the files in Waters2mzML.
+After you generate centroid data, MZmine3 still shows an error message (Scans containing 0 values). Please check/compare to your raw data and make sure the .mzML output is reliable.
+
+
 ### Config file
 
 The config file can be changed according to ProteoWizard‘s MSConvert command line input: https://proteowizard.sourceforge.io/tools/msconvert.html
 
-Make sure not to delete spaces before and after command. 
+Make sure not to delete spaces before and after command. Editing the file might result in non-functional output.
 
 
 ## Developers
