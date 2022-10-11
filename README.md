@@ -1,6 +1,6 @@
 # Waters2mzML V1.1.3
 
-*currently issues with profile data and MSe data, see below*
+*currently issues with profile data, see below*
 
 
 Waters2mzML converts and subsequently annotates Waters .raw MSn data (both MSe and DDA) into functional .mzML files. Obtained .mzML files can be processed in MZmine 3. It would be interesting to see if it works for all Waters .raw data and other processing streamlines.
@@ -20,10 +20,6 @@ Waters2mzML has so far only been tested on Windows 10, 64bit.
 -	Find functional .mzML files in the mzML_files folder. Desktop
 
 Before converting a new batch: Remove previously processed files from mzML_files folder. The software will process them again. While this will not corrupt them, it will extend execution time.
-
-### MSe data
-
-V1.1.3 can convert MSe data, but for all MS level 2 scans a constant precursor mass is assigned.
 
 ### Profile data
 
