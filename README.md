@@ -23,8 +23,7 @@ Before converting a new batch: Remove previously processed files from mzML_files
 
 ### Profile data
 
-V1.1.3 output is still profile data. Converting the .mzML output files again using msconvert GUI and vendor peakPicking filter can centroid them. As this does not seem to work in command line, you need to do this yourself after processing the files in Waters2mzML.
-After you generate centroid data, MZmine3 still shows an error message (Scans containing 0 values). Please check/compare to your raw data and make sure the .mzML output is reliable.
+V1.1.3 output is still profile data. 
 
 ## Developers
 
