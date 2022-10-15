@@ -21,9 +21,15 @@ Waters2mzML has so far only been tested on Windows 10, 64bit.
 
 Before converting a new batch: Remove previously processed files from mzML_files folder.
 
+### MSe data
+
+With MSe data, currently there is a precursor mass assigned to MS/MS scans. This mass is the mean of lower and upper limits you set for the isolation window. E.g., you only allowed MS/MS acquisition for m/z 50 - 2500. Precursor mass value will be set to 1025, isolation window upper and lower offset will both be set to 975.
+This is technically correct, but it is not clear if this aids or obstructs data processing and analysis. In case of the latter, the software will be altered to contain no precursor information with the next release.
+
 ### Profile data to centroid
 
 V1.2.0 is being centroided using ProteoWizard's CWT peak picking filter. The vendor conversion appears not to be applicable to Waters .raw data.
+However, it is advised to centroid your profile data in MassLynx, then converting the centroided .raw data to .mzML using Waters2mzML. This should reduce sources of errors.
 
 
 ## Developers
