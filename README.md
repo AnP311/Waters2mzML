@@ -23,7 +23,7 @@ Before converting a new batch: Remove previously processed files from mzML_files
 
 ### MSe data
 
-With MSe data, currently there is a precursor mass assigned to MS/MS scans. This mass is the mean of lower and upper limits you set for the isolation window. E.g., you only allowed MS/MS acquisition for m/z 50 - 2500. Precursor mass value will be set to 1025, isolation window upper and lower offset will both be set to 975.
+With MSe data, currently there is a precursor mass assigned to MS/MS scans. This mass is the mean of lower and upper limits you set for the isolation window. E.g., you only allowed MS/MS acquisition for m/z 50 - 2000. Precursor mass value will be set to 1025, isolation window upper and lower offset will both be set to 975.
 This is technically correct, but it is not clear if this aids or obstructs data processing and analysis. In case of the latter, the software will be altered to contain no precursor information with the next release.
 
 ### Profile data to centroid
