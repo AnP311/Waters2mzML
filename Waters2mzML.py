@@ -13,14 +13,14 @@ def get_config(centroid: bool) -> str:
     #create msconvert command without central wavelet transformation
     return ' --zlib --32 --filter "msLevel 1-2" --filter "titleMaker <RunId>.<ScanNumber>.<ScanNumber>.<ChargeState> File:"<SourcePath>".NativeID:"<Id>""'
 
-def process_all_raw(path: str, raw: List[str]) -> List[int]:
+def process_all_raw(raw_root_folder: str, raws: List[str]) -> List[int]:
     #annotate files before conversion; delete lockmass and any higher function folders in .raw data
     ##ms2 variable will show which function in .raw data is ____ ms level 2
     ms2 = []
     ##iterate over .raw files to annotate them one by one
-    for j in range(len(raw)):
+    for j in range(len(raws)):
         #set working directory to .raw directory
-        w = os.path.join(os.getcwd(), raw[j])
+        w = os.path.join(os.getcwd(), raws[j])
         os.chdir(w)
         #list files in .raw directory
         files = glob.glob(w + '/*')
@@ -168,21 +168,21 @@ def process_all_raw(path: str, raw: List[str]) -> List[int]:
         #for each file that is being processed, we add the number of the lockmass function to append the ms2 list, as an integer (e.g., 3).
         ms2.append(int(ref))
         #end of .raw directory annotation, set working directory back to input directory for next iteration.
-        os.chdir(path)
+        os.chdir(raw_root_folder)
     return ms2
 
-def ms_convert(path: str, msconvert: str, raw: List[str], config: str):
+def ms_convert(raw_root_folder: str, msconvert_path: str, raws: List[str], config: str):
     #start actual conversion with msconvert.exe
     ##iterate over files in input directory, converting them individually.
-    for i in raw:
+    for raw in raws:
         #print directory of file that is currently being converted
-        print (path + '\\' + i + " ...converting")
+        print (raw_root_folder + '\\' + raw + " ...converting")
         #call msconvert.exe (msconvert variable is directory of msconvert.exe), file to convert, and config file that has been defined in the beginning based on user input for centroiding.
-        subprocess.call(msconvert + " " + i + config) 
+        subprocess.call(msconvert_path + " " + raw + config) 
         #print directory of file that is now converted to .mzML
-        print (path + '\\' + i + " conversion completed!")
+        print (raw_root_folder + '\\' + raw + " conversion completed!")
 
-def annotate(path: str, mzml: str, ms2:List[int]):
+def annotate(raw_root_folder: str, mzml_root_folder: str, ms2:List[int]):
     #start post-conversion annotation
     print("\n\n","annotating files...","\n\n")
 
@@ -200,12 +200,12 @@ def annotate(path: str, mzml: str, ms2:List[int]):
 
     #copy these .txt files into output directory ("mzml" variable defined in the beginning).
     ##iterate over all files' entire directories
-    for f in glob.glob(os.path.join(path,"*.txt")):
+    for f in glob.glob(os.path.join(raw_root_folder,"*.txt")):
         #copy them to output directory
-        shutil.copy2(f, mzml)
+        shutil.copy2(f, mzml_root_folder)
 
     #change working directory to ouput directory
-    os.chdir(mzml)
+    os.chdir(mzml_root_folder)
     #get list with all .txt files now in ouput directory
     fn = glob.glob('*.txt')
 
@@ -213,7 +213,7 @@ def annotate(path: str, mzml: str, ms2:List[int]):
     for j in range(len(fn)):
         #open the respective original .txt file that remained in the input directory in reading mode.
         ##specify the directory by using path variable(input file directory) and the same file name (j) it has in the output directory.
-        f1 = open(os.path.join(path, fn[j]), 'r')
+        f1 = open(os.path.join(raw_root_folder, fn[j]), 'r')
         #open the newer, copied .txt file in the ouput directory in writing mode.
         f2 = open(fn[j], 'w')
         
@@ -345,7 +345,7 @@ def annotate(path: str, mzml: str, ms2:List[int]):
 
     #delete initial .txt files used for reading
     ##change working directory back to input folder
-    os.chdir(path)
+    os.chdir(raw_root_folder)
     #list the .txt files
     fn = glob.glob('*.txt')
     #delete the .txt files
