@@ -25,12 +25,14 @@ jobs:
           mkdir .\dist\.streamlit
           mkdir .\dist\raw_files
           mkdir .\dist\mzml_files
+          mkdir .\dist\pages
           cp .env .\dist\.env
           cp .env .\dist\raw_files\.placeholder
           cp .env .\dist\mzml_files\.placeholder
           cp .\.streamlit\config.toml .\dist\.streamlit\config.toml
           cp .\Waters2mzML.py .\dist\
-          cp .\Waters2mzML-ui.py .\dist\
+          cp .\Select_raw_folders.py .\dist\
+          cp .\pages\*.py .\dist\pages\
           ls dist
           
       - uses: actions/upload-artifact@v3.1.1
