@@ -70,6 +70,10 @@ select_all = columns[1].button('Select All')
 select_none = columns[2].button('Select None')
 
 all_raw = glob.glob('*.raw', root_dir=os.getenv('RAW_FILES_FOLDER'))
+
+if len(all_raw) == 0:
+    st.caption(f'No .raw folders found. Copy your Waters .raw folders to `{os.getenv("RAW_FILES_FOLDER")}` and hit the "Refresh the list" button.')
+
 for raw in all_raw:
     st.checkbox(raw, key=f'raw_checkbox_{raw}', value=_get_raw_checkbox_state(raw, select_all, select_none))
 
