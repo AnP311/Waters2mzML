@@ -81,7 +81,8 @@ centroid = st.sidebar.checkbox('Centroid profiled data?')
 _, right = st.sidebar.columns(2)
 process = right.button('Start conversion')
 if process:
-    raws_to_process = [os.path.join(os.getenv('RAW_FILES_FOLDER'), x) for x in _get_selected_raws()]
+    raws_to_process = _get_selected_raws()
+    os.chdir(os.getenv('RAW_FILES_FOLDER'))
     ms2 = process_all_raw(os.getenv('RAW_FILES_FOLDER'), raws_to_process)
     ms_convert(os.getenv('RAW_FILES_FOLDER'), os.getenv('MSCONVERT_EXE'), raws_to_process, get_config(centroid))
     annotate(os.getenv('RAW_FILES_FOLDER'), os.getenv('MZML_FILES_FOLDER'), ms2)
