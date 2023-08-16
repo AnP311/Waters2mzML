@@ -1,5 +1,6 @@
 cff-version: 1.2.0
 title: Waters2mzmL
+version: 1.2.0
 message: >-
   If you use this software, please cite it using the
   metadata from this file.
@@ -16,7 +17,6 @@ identifiers:
   - type: url
     value: >-
       https://github.com/AnP311/Waters2mzML/releases/tag/v1.2.0
-    description: The URL of version 1.2.0 of the software
 abstract: >-
   This software implements a Python based wrapper for
   Proteowizard msconvert (https://github.com/phnmnl/container-pwiz.git) to convert Waters .raw MSn data
