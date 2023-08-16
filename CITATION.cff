@@ -9,15 +9,10 @@ authors:
   - given-names: Anja Miriam
     family-names: Prisching
     email: anja.prisching@uni-oldenburg.de
-    affiliation: >-
-      Institute for Chemistry and Biology of the Marine
+    affiliation: Institute for Chemistry and Biology of the Marine
       Environment (ICBM), Carl-von-Ossietzky University
       Oldenburg, Germany
 url: https://github.com/AnP311/Waters2mzML/releases/tag/v1.2.0
-identifiers:
-  - type: url
-    value: >-
-      https://github.com/AnP311/Waters2mzML/releases/tag/v1.2.0
 abstract: >-
   This software implements a Python based wrapper for
   Proteowizard msconvert (https://github.com/phnmnl/container-pwiz.git) to convert Waters .raw MSn data
