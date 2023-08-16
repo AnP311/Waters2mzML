@@ -22,3 +22,4 @@ abstract: >-
   Proteowizard msconvert (https://github.com/phnmnl/container-pwiz.git) to convert Waters .raw MSn data
   into functional .mzML files
 license: GPL-3.0
+date-released: 2022-10-15
