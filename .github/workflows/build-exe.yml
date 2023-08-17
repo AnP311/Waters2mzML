@@ -1,0 +1,39 @@
+name: Build Windows Exe
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4.3.0
+        with:
+          python-version: '3.10'
+          
+      - uses: syphar/restore-virtualenv@v1
+          
+      - run: |
+          pip install -r requirements.txt
+          pip install pyinstaller==5.7.0
+          pyinstaller --onefile --hidden-import tkinter --hidden-import tkinter.filedialog --additional-hooks-dir=./hooks --add-data "C:/Users/runneradmin/.virtualenvs/.venv/Lib/site-packages;." run_Waters2mzML.py --clean
+          mkdir .\dist\.streamlit
+          mkdir .\dist\raw_files
+          mkdir .\dist\mzml_files
+          mkdir .\dist\pages
+          cp .env .\dist\.env
+          cp .env .\dist\raw_files\.placeholder
+          cp .env .\dist\mzml_files\.placeholder
+          cp .\.streamlit\config.toml .\dist\.streamlit\config.toml
+          cp .\Waters2mzML.py .\dist\
+          cp .\Select_raw_folders.py .\dist\
+          cp .\pages\*.py .\dist\pages\
+          ls dist
+          
+      - uses: actions/upload-artifact@v3.1.1
+        with:
+          name: build
+          path: dist
+            
